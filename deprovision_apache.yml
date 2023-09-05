@@ -1,6 +1,6 @@
 ---
 - name: Deprovision Apache Web Server
-  hosts: 10.228.231.36
+  hosts: all
   become: yes  # Run tasks as sudo
 
   tasks:
