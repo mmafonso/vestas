@@ -1,6 +1,6 @@
 ---
 - name: Deprovision Apache Web Server
-  hosts: <your_target_host_group>
+  hosts: alma03
   become: yes  # Run tasks as sudo
 
   tasks:
