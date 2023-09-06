@@ -1,6 +1,6 @@
 ---
 - name: Deprovision httpd on CentOS
-  hosts: your_centos_hosts  # Replace with your target hosts or group
+  hosts: all  # Replace with your target hosts or group
   become: yes  # Run tasks as sudo
 
   tasks:
