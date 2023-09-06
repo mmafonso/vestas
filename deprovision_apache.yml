@@ -1,25 +1,27 @@
 ---
-- name: Deprovision Apache Web Server
-  hosts: all
+- name: Deprovision httpd on CentOS
+  hosts: your_centos_hosts  # Replace with your target hosts or group
   become: yes  # Run tasks as sudo
 
   tasks:
-    - name: Stop Apache Service
+    - name: Stop httpd service
       systemd:
         name: httpd
         state: stopped
 
-    - name: Disable Apache Service
-      systemd:
-        name: httpd
-        enabled: no
-
-    - name: Uninstall Apache
-      apt:
+    - name: Uninstall httpd
+      package:
         name: httpd
         state: absent
 
-    - name: Remove Apache Test HTML Page
+    - name: Remove httpd config files
       file:
-        path: /var/www/html/index.html
+        path: "{{ item }}"
         state: absent
+      loop:
+        - /etc/httpd/conf/httpd.conf
+        - /etc/httpd/conf.d/*  # Caution, this removes all custom configs in conf.d
+
+    - name: Reload systemd to reflect changes
+      systemd:
+        daemon_reload: yes
