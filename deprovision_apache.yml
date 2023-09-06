@@ -6,17 +6,17 @@
   tasks:
     - name: Stop Apache Service
       systemd:
-        name: apache2
+        name: httpd
         state: stopped
 
     - name: Disable Apache Service
       systemd:
-        name: apache2
+        name: httpd
         enabled: no
 
     - name: Uninstall Apache
       apt:
-        name: apache2
+        name: httpd
         state: absent
 
     - name: Remove Apache Test HTML Page
