@@ -1,6 +1,6 @@
 ---
 - name: Provision Apache Web Server
-  hosts: <your_target_host_group>
+  hosts: all
   become: yes  # Run tasks as sudo
 
   tasks:
