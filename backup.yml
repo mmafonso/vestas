@@ -5,4 +5,4 @@
     - name: Backup the file
       ansible.builtin.copy:
         src: /var/www/html/index.html
-        backup_dir: /tmp/index.html_20231009
+        dest: /tmp/index.html_20231009
