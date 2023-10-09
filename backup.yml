@@ -3,6 +3,6 @@
   hosts: all
   tasks:
     - name: Backup the file
-      ansible.builtin.backup:
+      ansible.builtin.copy:
         src: /var/www/html/index.html
-        backup_dir: /tmp
+        backup_dir: /tmp/index.html_20231009
