@@ -4,5 +4,5 @@
   tasks:
     - name: Backup the file
       ansible.builtin.copy:
-        src: /var/www/html/index.html
+        remote_src: /var/www/html/index.html
         dest: /tmp/index.html_20231009
